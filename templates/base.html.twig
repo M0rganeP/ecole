@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    {{ include('inc/menu.html.twig') }}
+    <body>
+
+    	<div class="row-mt-4">
+    		<div class="col-md-8">
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+
+
+			</div>
+        </div>
+    </body>
+</html>

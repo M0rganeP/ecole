@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AbsenceRetard{% endblock %}
+
+{% block body %}
+    <h1>Détails de l'absence</h1>
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Date_debut</th>
+                <td>{{ absence_retard.dateDebut ? absence_retard.dateDebut|date('d-m-Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date_fin</th>
+                <td>{{ absence_retard.dateFin ? absence_retard.dateFin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Motif</th>
+                <td>{{ absence_retard.motif }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('absence_retard_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('absence_retard_edit', {'id': absence_retard.id}) }}">Modifier</a>
+
+    {{ include('absence_retard/_delete_form.html.twig') }}
+{% endblock %}

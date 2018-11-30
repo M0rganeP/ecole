@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New AbsenceRetard{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un retard/une absence</h1>
+
+    {{ include('absence_retard/_form.html.twig') }}
+
+    <a href="{{ path('absence_retard_index') }}">retour à la liste</a>
+{% endblock %}

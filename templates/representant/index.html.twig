@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Representant index{% endblock %}
+
+{% block body %}
+    <h1>Parents d'élèves</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+             
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse_1</th>
+                <th>Adresse_2</th>
+                <th>Telephone_1</th>
+                <th>Telephone_2</th>
+                <th>Email_1</th>
+                <th>Email_2</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for representant in representants %}
+            <tr>
+         
+                <td>{{ representant.nom }}</td>
+                <td>{{ representant.prenom }}</td>
+                <td>{{ representant.adresse1 }}</td>
+                <td>{{ representant.adresse2 }}</td>
+                <td>{{ representant.telephone1 }}</td>
+                <td>{{ representant.telephone2 }}</td>
+                <td>{{ representant.email1 }}</td>
+                <td>{{ representant.email2 }}</td>
+                <td>
+                    <a href="{{ path('representant_show', {'id': representant.id}) }}">Voir</a>
+                    <a href="{{ path('representant_edit', {'id': representant.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">Rien à afficher</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('representant_new') }}">Ajouter un nouveau parent</a>
+{% endblock %}

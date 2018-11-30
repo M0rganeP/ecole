@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Parent{% endblock %}
+
+{% block body %}
+    <h1>Parent d'élève</h1>
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Nom</th>
+                <td>{{ representant.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ representant.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse_1</th>
+                <td>{{ representant.adresse1 }}</td>
+            </tr>
+            <tr>
+                <th>Adresse_2</th>
+                <td>{{ representant.adresse2 }}</td>
+            </tr>
+            <tr>
+                <th>Telephone_1</th>
+                <td>{{ representant.telephone1 }}</td>
+            </tr>
+            <tr>
+                <th>Telephone_2</th>
+                <td>{{ representant.telephone2 }}</td>
+            </tr>
+            <tr>
+                <th>Email_1</th>
+                <td>{{ representant.email1 }}</td>
+            </tr>
+            <tr>
+                <th>Email_2</th>
+                <td>{{ representant.email2 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('representant_index') }}">retour à la liste</a>
+
+    <a href="{{ path('representant_edit', {'id': representant.id}) }}">Modifier</a>
+
+    {{ include('representant/_delete_form.html.twig') }}
+{% endblock %}

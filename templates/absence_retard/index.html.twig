@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AbsenceRetard index{% endblock %}
+
+{% block body %}
+    <h1>Liste des absence et/ou retards</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+              
+                <th>Date_debut</th>
+                <th>Date_fin</th>
+                <th>Motif</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for absence_retard in absence_retards %}
+            <tr>
+                
+                <td>{{ absence_retard.dateDebut ? absence_retard.dateDebut|date('d-m-Y') : '' }}</td>
+                <td>{{ absence_retard.dateFin ? absence_retard.dateFin|date('d-m-Y') : '' }}</td>
+                <td>{{ absence_retard.motif }}</td>
+                <td>
+                    <a href="{{ path('absence_retard_show', {'id': absence_retard.id}) }}">Détails</a>
+                    <a href="{{ path('absence_retard_edit', {'id': absence_retard.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun retard et aucune absence!</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('absence_retard_new') }}">Ajouter un nouveau retard/une nouvelle absence</a>
+{% endblock %}

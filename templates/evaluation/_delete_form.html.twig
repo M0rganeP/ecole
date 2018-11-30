@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('evaluation_delete', {'id': evaluation.id}) }}" onsubmit="return confirm('Etes-vous sûr.e de vouloir supprimer cette évaluation, ainsi que les notes qui pourraient lui être liées?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ evaluation.id) }}">
+    <button class="btn">Supprimer</button>
+</form>

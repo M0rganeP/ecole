@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Eleve index{% endblock %}
+
+{% block body %}
+    <h1>Liste des élèves</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Genre</th>
+                <th>Date_naissance</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for eleve in eleves %}
+            <tr>
+                
+                <td>{{ eleve.nom }}</td>
+                <td>{{ eleve.prenom }}</td>
+                <td>{{ eleve.email }}</td>
+                <td>{{ eleve.telephone }}</td>
+                <td>{{ eleve.genre }}</td>
+                <td>{{ eleve.dateNaissance ? eleve.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('eleve_show', {'id': eleve.id}) }}">Voir</a>
+                    <a href="{{ path('eleve_edit', {'id': eleve.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucun élève !</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('eleve_new') }}">Créer un nouvel élève</a>
+{% endblock %}

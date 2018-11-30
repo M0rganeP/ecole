@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evaluation{% endblock %}
+
+{% block body %}
+    <h1>Evaluation - Détails</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ evaluation.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ evaluation.date ? evaluation.date|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('evaluation_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('evaluation_edit', {'id': evaluation.id}) }}">Modifier</a>
+
+    {{ include('evaluation/_delete_form.html.twig') }}
+{% endblock %}

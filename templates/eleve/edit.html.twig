@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Eleve{% endblock %}
+
+{% block body %}
+    <h1>Modifier les informations d'un éleve</h1>
+
+    {{ include('eleve/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('eleve_index') }}">retour à la lsite</a>
+
+    {{ include('eleve/_delete_form.html.twig') }}
+{% endblock %}
